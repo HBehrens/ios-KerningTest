@@ -38,7 +38,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
     self.kerning = 0;
 }
 
@@ -48,7 +47,6 @@
     self.testLabel.kerning = kerning;
 }
 
-
 - (IBAction)sliderChanged:(UISlider*)sender {
     self.kerning = sender.value;
 }
@@ -57,10 +55,5 @@
     self.kerning = 0;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 @end
