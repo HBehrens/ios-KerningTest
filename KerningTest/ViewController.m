@@ -47,6 +47,7 @@
 -(void)setKerning:(CGFloat)kerning {
     _kerning = kerning;
     self.slider.value = kerning;
+    self.debugLabel.text = [NSString stringWithFormat:@"%.2f", kerning];
     self.testLabel.kerning = kerning;
 }
 
