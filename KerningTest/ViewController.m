@@ -19,6 +19,9 @@
 
 @interface UILabel (Kerning)
 
+// NOTE: whenever self.text /.attributedText will be set, the current kerning will be lost
+// use an associated value objc_setAssociatedObject to keep knowledge of the value,
+// then, swizzle #setText: and #setAttributedText: to reapply the kerning after calling super
 -(void)setKerning:(CGFloat)kerning;
 
 @end
