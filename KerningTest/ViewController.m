@@ -16,6 +16,23 @@
 
 @end
 
+
+@interface UILabel (Kerning)
+
+-(void)setKerning:(CGFloat)kerning;
+
+@end
+
+@implementation UILabel (Kerning)
+
+-(void)setKerning:(CGFloat)kerning {
+    NSMutableAttributedString *attributedString = [NSMutableAttributedString.alloc initWithString:self.text];
+    [attributedString addAttribute:NSKernAttributeName value:@(kerning) range:NSMakeRange(0, attributedString.length)];
+    self.attributedText = attributedString;
+}
+
+@end
+
 @implementation ViewController
 
 - (void)viewDidLoad
@@ -27,12 +44,8 @@
 
 -(void)setKerning:(CGFloat)kerning {
     _kerning = kerning;
-    
     self.slider.value = kerning;
-    self.debugLabel.text = [NSString stringWithFormat:@"%f", kerning];
-    NSMutableAttributedString *attributedString = [NSMutableAttributedString.alloc initWithString:@"Hello, World!\nHere's some kerning testing going on :)"];
-    [attributedString addAttribute:NSKernAttributeName value:@(kerning) range:NSMakeRange(0, attributedString.length)];
-    self.testLabel.attributedText = attributedString;
+    self.testLabel.kerning = kerning;
 }
 
 
